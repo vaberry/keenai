@@ -4,6 +4,15 @@
 {% load static %}
 {% load custom_tags %}
 
+<style>
+    .save {
+        color: #12c2e9;
+    }
+
+    .time {
+        color: #c471ed;
+    }
+</style>
 <div class="container px-5 px-md-0 mb-5">
     <div class="row mt-3">
         <div class="col-md-6">
@@ -15,7 +24,7 @@
                         <img src="{% static 'base/img/veteran.png' %}" alt="" style="height: 150px; width: auto;">
                     </div>
                     <div class="col mt-3 mt-lg-0">
-                        <h2 class="h3">We are a Veteran-Owned Small Business (VOSB) helping other small businesses save time with AI solutions</h2>
+                        <h2 class="h3">We are a Veteran-Owned Small Business (VOSB) helping other small businesses <span class="save">save</span> <span class="time">time</span> with AI solutions</h2>
                     </div>
                 </div>
             </div>
@@ -27,7 +36,7 @@
                 Vince brings over a over a decade of technology experience, including 5 years in Defense Intelligence and 6 years in Artificial Intelligence, while Whitney brings over a decade of experience in the mental health industry, including 3 years at a non-profit helping veterans suffering from different kinds of combat-related trauma.
             </p>
         </div>
-        <div class="col col-md-6 text-center">
+        <div class="col col-md-6 text-center mt-3 mt-md-0">
             <img src="{% static 'base/img/redrocks.jpeg' %}" alt="Image Description" class="img-fluid w-75 mb-5 rounded">
         </div>
     </div>
