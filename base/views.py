@@ -10,3 +10,8 @@ class Projects(View):
     def get(self, request, *args, **kwargs):
         if request.method == "GET":
             return render(request, 'projects.html')
+        
+class About(View):
+    def get(self, request, *args, **kwargs):
+        if request.method == "GET":
+            return render(request, 'about.html')

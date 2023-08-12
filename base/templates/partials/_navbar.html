@@ -72,13 +72,16 @@
                 <button class="navbar-toggler bg-secondary me-3 me-md-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse text-center" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-3 mt-md-0">
                             <a href="{% url 'home' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.path == '/' %}active{% endif %}">Home</a>
                         </li>
                         <li class="nav-item mt-3 mt-md-0">
-                            <a href="{% url 'projects' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'projects' %}active{% endif %}">Projects</a>
+                            <a href="{% url 'projects' %}" class="disabled nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'projects' %}active{% endif %}">Projects<br><i>soon!</i></a>
+                        </li>
+                        <li class="nav-item mt-3 mt-md-0">
+                            <a href="{% url 'about' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'about' %}active{% endif %}">About Us</a>
                         </li>
                     </ul>
                 </div>
