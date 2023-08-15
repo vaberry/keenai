@@ -15,3 +15,13 @@ class About(View):
     def get(self, request, *args, **kwargs):
         if request.method == "GET":
             return render(request, 'about.html')
+        
+class Newsletter(View):
+    def get(self, request, *args, **kwargs):
+        if request.method == "GET":
+            return render(request, 'newsletter.html')
+        
+class Articles(View):
+    def get(self, request, *args, **kwargs):
+        if request.method == "GET":
+            return render(request, 'articles.html')

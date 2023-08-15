@@ -82,6 +82,12 @@
                             <a href="{% url 'projects' %}" class="disabled nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'projects' %}active{% endif %}">Projects<br><i>coming soon!</i></a>
                         </li>
                         <li class="nav-item mt-md-0">
+                            <a href="{% url 'newsletter' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'newsletter' %}active{% endif %}">Newsletter</i></a>
+                        </li>
+                        <li class="nav-item mt-md-0">
+                            <a href="{% url 'articles' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'articles' %}active{% endif %}">Articles</i></a>
+                        </li>
+                        <li class="nav-item mt-md-0">
                             <a href="{% url 'about' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'about' %}active{% endif %}">About Us</a>
                         </li>
                     </ul>
