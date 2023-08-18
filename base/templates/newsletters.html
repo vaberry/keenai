@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col mt-5 text-center">
+            <img src="{% static industry_dict.image %}" alt="" style="height: 250px; width: auto;">
+            <iframe src="{{ industry_dict.link }}" data-test-id="beehiiv-embed" width="100%" frameborder="0" scrolling="no" style="border-radius: 4px; border: 0px solid #e5e7eb; margin: 0; background-color: transparent;"></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

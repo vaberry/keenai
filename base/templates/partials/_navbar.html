@@ -1,21 +1,25 @@
 {% load static %}
 
 <style>
+    /* .nav-btn {
+        border: none;
+        position: relative;
+    }
 
-    /* li {
+    li {
         list-style-type: none;
         padding: 10px;
-    } */
+    }
 
-    /* a {
+    a {
         text-decoration: none;
         text-transform: none;
         font-size: 20px;
         color: white;
         position: relative;
-    } */
+    }
 
-    /* ul li a:before {
+    ul li a:before {
         content: "";
         width: 0;
         height: 5px;
@@ -24,9 +28,9 @@
         top: 120%;
         left: 0;
         transition: all 0.5s;
-    } */
+    }
 
-    /* ul li a:after {
+    ul li a:after {
         content: "";
         width: 0;
         height: 5px;
@@ -35,24 +39,24 @@
         top: 120%;
         right: 0;
         transition: all 0.5s;
-    } */
+    }
 
-    /* ul li a:hover:before {
+    ul li a:hover:before {
         width: 50%;
         transform: translateX(100%);
-    } */
+    }
 
-    /* ul li a:hover:after {
+    ul li a:hover:after {
         width: 50%;
         transform: translateX(-100%);
-    } */
+    }
 
-    /* ul li a.active:before {
+    ul li a.active:before {
         width: 50%;
         transform: translateX(100%);
-    } */
+    }
 
-    /* ul li a.active:after {
+    ul li a.active:after {
         width: 50%;
         transform: translateX(-100%);
     } */
@@ -61,85 +65,33 @@
 <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
 <div class="container-fluid">
     <div class="row">
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg bg-white">
             <div class="container-fluid">
                 <a class="" href="{% url 'home' %}">
                     <img src="{% static 'base/img/keenai_symbol.png' %}" style="height: 80px; width: auto;" alt="">
                 </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item text-center me-3">
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                        <li class="nav-item text-center me-3">
+                            <a class="disabled nav-link" href="{% url 'projects' %}">Projects<br><small><i>coming soon!</i></small></a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item text-center me-3 dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
+                                Newsletters
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item mt-md-0"><a href="{% url 'home' %}" class="btn bg-none text-secondary m-1 {% if request.path == '/' %}active{% endif %}">Home</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="{% url 'newsletters' 'defense' %}" target="_blank">DefenseAI</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
-
-
-        <!-- <nav class="navbar navbar-expand-lg mt-4">
-            <div class="container-fluid">
-                <a class="" href="{% url 'home' %}">
-                    <img src="{% static 'base/img/keenai_symbol.png' %}" style="height: 80px; width: auto;" alt="">
-                </a>
-                <button class="navbar-toggler bg-secondary me-3 me-md-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse text-center" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mt-md-0">
-                            <a href="{% url 'home' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.path == '/' %}active{% endif %}">Home</a>
-                        </li>
-                        <li class="nav-item mt-md-0">
-                            <a href="{% url 'projects' %}" class="disabled nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'projects' %}active{% endif %}">Projects<br><i>coming soon!</i></a>
-                        </li>
-                        <li class="nav-item mt-md-0 dropdown">
-                            <a href="{% url 'newsletter' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'newsletter' %}active{% endif %}">Newsletter</i></a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-
-
-                        <li class="nav-item mt-md-0">
-                            <a href="{% url 'articles' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'articles' %}active{% endif %}">Articles</i></a>
-                        </li>
-                        <li class="nav-item mt-md-0">
-                            <a href="{% url 'about' %}" class="nav-btn btn bg-none text-secondary m-1 {% if request.resolver_match.view_name == 'about' %}active{% endif %}">About Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
+        
     </div>
 </div>
