@@ -13,26 +13,27 @@ class Command(BaseCommand):
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             driver.implicitly_wait(10)
             soup = BeautifulSoup(driver.page_source, 'html.parser')
-            article_links = soup.find_all('a', class_='group flex h-full w-full border transition-all group-hover:brightness-110 rounded-lg flex-col')
-            for article_link in article_links:
-                article_soup = BeautifulSoup(str(article_link), 'html.parser')
-                full_url = f"https://defenseai.beehiiv.com{article_link['href']}"
-                image = article_soup.find('img')['src']
-                title = article_soup.find('h2', class_='break-words line-clamp-4 text-lg sm:text-xl font-bold font-open_sans').text
-                subtitle = article_soup.find('p', class_='break-words line-clamp-2 text-sm font-regular font-open_sans').text
-                author = article_soup.find('span', class_='text-xs font-semibold').text
-                datetime = article_soup.find('time')['datetime']
+            newsletter_links = soup.find_all('a', class_='group flex h-full w-full border transition-all group-hover:brightness-110 rounded-lg flex-col')
+            for newsletter_link in newsletter_links:
+                newsletter_soup = BeautifulSoup(str(newsletter_link), 'html.parser')
+                full_url = f"https://defenseai.beehiiv.com{newsletter_link['href']}"
+                image = newsletter_soup.find('img')['src']
+                title = newsletter_soup.find('h2', class_='break-words line-clamp-4 text-lg sm:text-xl font-bold font-open_sans').text
+                subtitle = newsletter_soup.find('p', class_='break-words line-clamp-2 text-sm font-regular font-open_sans').text
+                author = newsletter_soup.find('span', class_='text-xs font-semibold').text
+                datetime = newsletter_soup.find('time')['datetime']
             
-                article = Newsletters.objects.filter(article_url=full_url).first()
-                if not article:
-                    article = Newsletters.objects.create(
-                        article_url=full_url,
-                        image_url=image,
-                        title=title,
-                        subtitle=subtitle,
-                        author=author,
-                        datetime=datetime
-                    )
-                article.save()
+                newsletters = Newsletters.objects.all()
+                for newsletter in newsletters:
+                    newsletter.delete()
+                new_newsletter = Newsletters.objects.create(
+                    newsletter_url=full_url,
+                    image_url=image,
+                    title=title,
+                    subtitle=subtitle,
+                    author=author,
+                    datetime=datetime
+                )
+                new_newsletter.save()
         except Exception as e:
             print(e)
