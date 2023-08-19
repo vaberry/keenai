@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from base.models import Articles
+from base.models import Newsletters
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -23,9 +23,9 @@ class Command(BaseCommand):
                 author = article_soup.find('span', class_='text-xs font-semibold').text
                 datetime = article_soup.find('time')['datetime']
             
-                article = Articles.objects.filter(article_url=full_url).first()
+                article = Newsletters.objects.filter(article_url=full_url).first()
                 if not article:
-                    article = Articles.objects.create(
+                    article = Newsletters.objects.create(
                         article_url=full_url,
                         image_url=image,
                         title=title,

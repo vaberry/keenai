@@ -1,6 +1,6 @@
 from django.db import models
     
-class Articles(models.Model):
+class Newsletters(models.Model):
     article_url = models.URLField(max_length=1000)
     image_url = models.URLField(max_length=1000)
     title = models.CharField(max_length=1000)
