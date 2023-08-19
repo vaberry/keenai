@@ -1,7 +1,7 @@
 {% load static %}
 
 <style>
-    /* .nav-btn {
+    .nav-btn {
         border: none;
         position: relative;
     }
@@ -59,7 +59,7 @@
     ul li a.active:after {
         width: 50%;
         transform: translateX(-100%);
-    } */
+    }
 </style>
 
 <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
@@ -76,12 +76,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-lg-0">
                         <li class="nav-item text-center">
-                            <a class="nav-link" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link me-3 {% if request.path == '/' %}active {% else %} text-secondary {% endif %}" href="{% url 'home' %}"><h4>Home</h4></a>
                         </li>
                         <li class="nav-item text-center">
-                            <a class="disabled nav-link" href="{% url 'projects' %}">Projects<br><small><i>coming soon!</i></small></a>
+                            <a class="nav-link me-3 {% if request.resolver_match.view_name == 'newsletters' %}active{% else %} text-secondary{% endif %}" href="{% url 'newsletters' 'defense' %}"><h4>DefenseAI</h4></a>
                         </li>
-                        <li class="nav-item text-center dropdown">
+                        <!-- <li class="nav-item text-center dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Newsletters
                             </a>
@@ -89,7 +89,7 @@
                                 <li><a class="dropdown-item" href="{% url 'newsletters' 'defense' %}">DefenseAI</a></li>
                                 <li><hr class="dropdown-divider"></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

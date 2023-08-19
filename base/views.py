@@ -44,8 +44,3 @@ class Newsletters(View):
             }
 
             return render(request, 'newsletters.html', context=context)
-        
-class Articles(View):
-    def get(self, request, *args, **kwargs):
-        if request.method == "GET":
-            return render(request, 'articles.html')
