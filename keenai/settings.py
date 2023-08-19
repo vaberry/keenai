@@ -53,7 +53,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'keenai.wsgi.application'
 
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+# DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 # if DEVELOPMENT_MODE is True:
 #     DATABASES = {
 #         "default": {
@@ -67,6 +67,18 @@ DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 #     DATABASES = {
 #         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
 #     }
+
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv("DATABASE_ENGINE"),
+        'NAME': os.getenv("DATABASE_NAME"),
+        'USER': os.getenv("DATABASE_USER"),
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
+        'HOST': os.getenv("DATABASE_HOST"),
+        'PORT': os.getenv("DATABASE_PORT"),
+    }
+}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

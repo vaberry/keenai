@@ -3,6 +3,10 @@ from django.views.generic.base import View
 import requests
 from dotenv import load_dotenv
 import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from bs4 import BeautifulSoup
+
 load_dotenv()
 
 class Home(View):
@@ -31,27 +35,9 @@ class Newsletters(View):
             }
             industry = kwargs.get('industry')
             industry_dict = industry_subscribe_dict.get(industry)
-            print(industry_dict)
             context = {
                 'industry_dict': industry_dict
             }
-
-            # beehiiv_api_key = os.getenv("BEEHIIV_API_KEY")
-            # url = "https://api.beehiiv.com/v2/publications"
-            # headers = {
-            #     "Accept": "application/json",
-            #     "Authorization": f"Bearer {beehiiv_api_key}"
-            # }
-
-            # response = requests.get(url, headers=headers)
-
-            # if response.status_code == 200:
-            #     data = response.json()
-            #     # Process the JSON data here
-            #     print(data)
-            # else:
-            #     print("Request failed with status code:", response.status_code)
-
 
             return render(request, 'newsletters.html', context=context)
         
