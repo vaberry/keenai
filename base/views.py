@@ -6,6 +6,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
+from . import models
 
 load_dotenv()
 
@@ -35,8 +36,11 @@ class Newsletters(View):
             }
             industry = kwargs.get('industry')
             industry_dict = industry_subscribe_dict.get(industry)
+
+
             context = {
-                'industry_dict': industry_dict
+                'industry_dict': industry_dict,
+                'newsletters': models.Newsletters.objects.all()
             }
 
             return render(request, 'newsletters.html', context=context)
